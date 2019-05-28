@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <style>
+     html {
+      background: #018DED;
+      font-family: 'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+     }
+      .abcabcaa{
+      background-color: rgb(255, 0, 0);
+      position: relative;
+      width: 130px;
+      height: 30px;
+      
+    }
+    /*設定一個 .bbb 的 偽元素 的物件*/
+     .bbb::before{
+      content: '';
+      position: absolute;
+      background-image: url('../img/logo_blk.png');
+      background-origin: border-box;
+      background-size: contain;
+      background-repeat: no-repeat;
+      /* background-color: blue; */
+      width: 130px;
+      height: 30px;
+      top:0;        /*是該物件原點  左0上0*/
+      left: 0;
+    }
+
+    /*設定一個 .ccc 的 偽元素 的物件*/
+    .ccc::before{
+      content: '';
+      position: absolute;
+      background-image: url('img/logo-white.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      /* background-color: blue; */
+      width:   0px;
+      height: 30px;
+      top:0;        /*是該物件原點  左0上0*/
+      left: 0; 
+    }
+    /*設定一個 .bbb 的 偽元素 的動畫用來新增*/
+    .bbb::before{
+      animation: af_ani 1s linear;
+      animation-fill-mode: forwards;
+    }
+    /*設定一個 .bbb 的 偽元素 的動畫用來移除*/
+    .ccc::before{
+      animation: bf_ani 1s linear;
+      animation-fill-mode: forwards;
+    }
+
+   /*向左覆蓋*/
+    @keyframes af_ani{
+        0%{
+           
+            left: 130px;
+            clip:rect(0px,0px,30px,0px);
+        }
+      
+        100%{
+       
+            left: 0px;
+            clip:rect(0px,140px,30px,0px);
+            /* 必須有pos屬性    上 右 下 左  從左上 X:0 Y:0計算  */
+        }
+    }
+       /*向右覆蓋*/
+       @keyframes bf_ani{
+        0%{
+            width: 200px;
+ 
+            left: 0px;
+        
+        }
+        100%{
+            width: 0px;
+  
+            left: 200px;
+          
+        }
+    }
+      </style>
+   
+</head>
+<body>
+    <div class="abcabcaa">
+        <div class="abc bbb"></div>
+    </div>
+</body>
+</html>
