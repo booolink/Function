@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS 標籤切換 input功能</title>
+  <style>
+ 
+
+    .tap_group label{
+        display: inline-block;
+        padding: 10px 30px;
+        border: 1px solid #ccc;
+        border-bottom: none;
+        background-color: #ccc;
+        position: relative;
+        bottom: -1px;
+    }
+    .content_group{
+        border: 1px solid #ccc;
+        padding: 20px;
+    }
+   .content{
+       display: none;
+   }
+    .panel_control{
+        position: absolute;
+        opacity: 0;
+    }
+   
+
+    #radio1:checked ~ .tap_group [for="radio1"],
+    #radio2:checked ~ .tap_group [for="radio2"],
+    #radio3:checked ~ .tap_group [for="radio3"],
+    #radio4:checked ~ .tap_group [for="radio4"],
+    #radio5:checked ~ .tap_group [for="radio5"]{
+        background-color: rgb(255, 255, 255);
+        }
+    #radio1:checked ~.content_group .content1,
+    #radio2:checked ~.content_group .content2,
+    #radio3:checked ~.content_group .content3,
+    #radio4:checked ~.content_group .content4,
+    #radio5:checked ~.content_group .content5{
+        display:block;
+        }
+  
+  </style>
+</head>
+<body>
+<!-- input type==> button/ checkbox方形打勾選擇框/ color/ date/ datetime-local/ email/ file/hidden/image/month/number-->
+<!-- input type==> password/radio圓形選擇框/range/reset/search/submit提交/tel/text/time/url/week-->
+    <div class="panel_group">  <!-- name相同 只能選擇一個  不同代表可以多選 -->
+
+        <input type="radio" name="panel_radio" id="radio1" class="panel_control" checked>
+        <input type="radio" name="panel_radio" id="radio2" class="panel_control">
+        <input type="radio" name="panel_radio" id="radio3" class="panel_control">
+        <input type="radio" name="panel_radio" id="radio4" class="panel_control">
+        <input type="radio" name="panel_radio" id="radio5" class="panel_control">
+
+           <div class="tap_group"> <!-- label[for="radio$"]{tab$}  $ = 數字編號-->
+               <label for="radio1">tab1</label>
+               <label for="radio2">tab2</label>
+               <label for="radio3">tab3</label>
+               <label for="radio4">tab4</label>
+               <label for="radio5">tab5</label>
+           </div>
+
+    
+    <div class="content_group">
+        <div class="content content1">content1  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, provident.</div>
+        <div class="content content2">content2  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, provident.</div>
+        <div class="content content3">content3  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, provident.</div>
+        <div class="content content4">content4  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, provident.</div>
+        <div class="content content5">content5  Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, provident.</div>
+    </div>
+</div>
+</body>
+</html>
