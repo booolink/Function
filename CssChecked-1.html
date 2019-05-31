@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS-checked class1</title>
+    <style>
+      h1{
+          font-family: '微軟正黑體';
+          color: orange;
+      }
+
+     .btn-box{
+         display: inline-block;
+         width: 40px;
+         height: 20px;
+         border-radius: 100px;
+         background-color: #ccc;
+         box-shadow: 0px 3px 0px rgb(37, 37, 37,.3) inset;
+         vertical-align: bottom;
+         
+     }
+    .btn-box .btn{
+        display: block;
+        display: inline-block;   /*inline不能設定寬高  所以用inlink-block 但有inline特性*/
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #aaa;
+        margin-left: 20px;    
+        transition: .5s;
+        box-shadow: 1px 2px 5px rgb(0, 0, 0,.3);
+    }
+    label{
+       display: inline-block;  /* 給予block屬性或 inline-block屬性  block直向  inline橫向*/
+       margin-top: 10px;
+       
+    }
+    .text{
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+    /* 屬性選取器  沒用到*/
+    /* input[type="checkbox"]{
+
+    } */
+    .chackbox{
+         position: absolute;  /*用絕對定位 浮起來 但還會在原來位置  不會亂跑只要不用去定位他*/
+         opacity: 0;             /*透明度100%*/
+         
+    }
+                /* 使用 checkbox:checked 去選到(+=選取器) btn-box的btn*/
+    .chackbox:checked + .btn-box .btn{
+         margin-left: 0px;
+         background-color: rgb(248, 130, 94);
+    }
+    .chackbox:checked + .btn-box{
+        
+         background-color: rgb(114, 218, 241);
+    }
+
+    </style>
+</head>
+<body>  
+    <h1> 在label標籤裡 當input被點選時 讓btn-box裡面的btn 被換掉</h1>
+    <h2> 按鈕滑動 變色</h2>
+    <h3> 功課   背景漸層  滑動一半的左右邊顏色變換</h3> 
+    <h3> 功課   平行對齊</h3>
+    <h4>vertical-align  sub/下標, super/上標 ,top/最高位置 ,text-top/文字的最高 ,middle/置中 ,bottom/最低 ,text-bottom/文字的最低</h4> 
+                            <!-- (<input type="checkbox" name="" id="">  + <span class="btn-box"> 裡面 <span class="btn"> -->
+    <!--   div  裡面 <label> 裡面  <input type="checkbox" name="" id="">  + <span class="btn-box"> 裡面 <span class="btn"> -->
+  <!--   div*6    >   label    >      input:c                            +        span.btn-box      >      span.btn    ^  span.text{我是文字} -->
+  <div><!--  for=""   僅限於底選框框  刪除這個可以點選文字動作-->
+      <label >
+          <input type="checkbox" class="chackbox"name="" id="">
+          <span class="btn-box">
+              <span class="btn"></span>
+            </span>
+          <span class="text">我是文字</span>
+      </label>
+  </div>
+  <div>
+      <label >
+          <input type="checkbox" class="chackbox"name="" id="">
+          <span class="btn-box">
+              <span class="btn"></span>
+            </span>
+          <span class="text">我是文字</span>
+      </label>
+  </div>
+  <div>
+      <label >
+          <input type="checkbox" class="chackbox"name="" id="">
+          <span class="btn-box">
+              <span class="btn"></span>
+            </span>
+          <span class="text">我是文字</span>
+      </label>
+  </div>
+  <div>
+      <label >
+          <input type="checkbox" class="chackbox"name="" id="">
+          <span class="btn-box">
+              <span class="btn"></span>
+            </span>
+          <span class="text">我是文字</span>
+      </label>
+  </div>
+  <div>
+      <label >
+          <input type="checkbox" class="chackbox"name="" id="">
+          <span class="btn-box">
+              <span class="btn"></span>
+            </span>
+          <span class="text">我是文字</span>
+      </label>
+  </div>
+  <div>
+      <label >
+          <input type="checkbox" class="chackbox"name="" id="">
+          <span class="btn-box">
+              <span class="btn"></span>
+            </span>
+          <span class="text">我是文字</span>
+      </label>
+  </div>
+
+
+</body>
+</html>

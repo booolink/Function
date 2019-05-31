@@ -19,34 +19,58 @@
        background-color: aquamarine;
      }
      .abc{
-       width: 300px;
-       height: 80px;
-       background-color: aquamarine;
-       margin-left: 170px;
-       position: relative;
+       width: 150px;
+       height: 40px;
+       background-color: #018DED;       
+       position: absolute;
+       clip:rect(0px,150px,40px,0px);
+       top: 20px;
+       left: 20px;
      }
       .bbb{
-      background-color: rgb(251, 255, 0);
+      background-image: url('../img/logo-white.png');
+      background-repeat: no-repeat;
+      background-size: contain;
       position: absolute;
-      width: 130px;
-      height: 30px;
-      top:20px;
-      overflow: hidden;
+      width: 150px;
+      height: 40px;
+      
+      
     }
     /*設定一個 .bbb 的 偽元素 的物件*/
      .bbb::before{
       content: '';
       position: absolute;
-      background-color: rgba(0, 0, 255, 0.212);
-      width: 130px;
-      height: 30px;
-      left: 130px;
+      background-image: url('../img/logo_blk.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 150px;
+      height: 40px;
+      top: -2px;
+      left: 160px;
       
     }
 
+    .ddd{
+      animation: bbb_ani 1s linear;
+      animation-fill-mode: forwards;
+    }
+
+
+
+    @keyframes bbb_ani{
+   0%{
+        left: 0px;
+        
+   }
+   100%{
+        left: -160px;
+       
+   }
+    }
   
     /*設定一個 .bbb 的 偽元素 的動畫用來新增*/
-    .bbb::before{
+    /* .bbb::before{
       animation: af_ani 1s linear;
       animation-fill-mode: forwards;
     }
@@ -54,8 +78,13 @@
       animation: bf_ani 1s linear;
       animation-fill-mode: forwards;
     }
- 
-@keyframes af_ani{
+  */
+
+
+
+
+
+/* @keyframes af_ani{
    0%{
         left: 130px;
         clip:rect(0px,0px,30px,0px);
@@ -64,7 +93,7 @@
         left: 0px;
         clip:rect(0px,130px,30px,0px);
    }
-}
+} */
 
 
 
@@ -75,7 +104,9 @@
 </head>
 <body>
     <div class="abcabcaa">
-        <div class="abc bbb"></div>
+       <div class="abc">
+        <div class="bbb ddd"></div>
+      </div>
     </div>
 </body>
 </html>

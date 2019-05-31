@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS-checked 基礎介紹</title>
+    <style>
+                      /* (+ 號選取器) 後面的標籤(後面的第一個,其餘選不到)  (#id , .names */)
+        input:checked + span{
+           color: red;
+        }
+              /* (~ 選取器) 選擇全部的   須要在同一層內   */
+        #booolink:checked ~ div{
+                color: blueviolet;
+        }
+    
+    </style>
+</head>
+<body>
+    <label>   
+         <input type="checkbox" alt="顯示輸入框" name="" id="">     
+         <!-- 顯示輸入框   checkbox 是可以打勾的框框 -->
+         <span class="jjj">
+              booolink
+         </span>
+    
+    
+    
+    <div>                        <!-- 設定id -->
+            <input type="checkbox" name="" id="booolink">
+            
+                    <!-- 即使不在同一個區塊  也可以點到文字就選取到 = 任何地方-->
+       <div>
+             <label for="booolink">booolinkbooolinkbooolinkbooolinkbooolinkbooolink</label>
+                      <!-- 設定id 只能id-->
+         </div>    
+    </label>
+
+    <!-- div{div$}*10 -->
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+    <div>div5</div>
+    <h2>t amet consectetur adipisicing e</h2>
+    <div>div6</div>
+    <div>div7</div>
+    <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum veniam sapiente incidunt commodi nihil maiores soluta ipsum necessitatibus aut sequi, eum illum consequuntur quaerat recusandae exercitationem tempora quidem! Alias, similique.</P>
+    <div>div8</div>
+    <div>div9</div>
+    <div>div10</div>
+
+    </div>
+
+
+
+</body>
+</html>
