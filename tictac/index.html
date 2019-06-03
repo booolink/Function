@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <link rel="stylesheet" href="css/game.css">
+
+</head>
+<body>
+    <div class="block_area">
+
+        <div id="app">
+            <div class="block" 
+                v-for="(block,uuu) in blocks"  @click="player_go(block)"
+                v-bind:class="{circle:block.type == 1, cross:block.type == -1}">
+
+                <div class="number">{{uuu+1}}</div>
+            </div>
+        </div>
+        
+        <div class="block small" v-bind:class="{circle:turn==1, cross:turn==-1}">
+         
+        </div>
+ 
+    </div>
+
+
+    <script src="js/vue.js"></script>
+
+     <script>
+          var blocks = {type: 0}
+          var vm = new Vue({
+            el:'#app',
+            data:{        //設定一個陣列名子叫 blocks
+                 blocks:[],
+                 turn:1
+            },
+            mounted(){        //一個生命週期  
+                this.restart()
+            },
+            player_go(block){
+                block.type = this.turn
+                this.turn = -this.turn
+            },
+            methods:{
+                restart(){               //restart() 給這個methods:  的一個函式
+                    this.blocks=Array.from({length:9},function(){  //this.陣列=array.from({length:9個}) 
+                        return {                      //並且給他一個方法 是返回 type:0   
+                            type:0
+                        }
+                    })             
+                }
+            }
+   });
+
+
+   
+//    Array.from({length: 9},function(){
+//                      return{
+//                          type: 1-parseInt(Math.random()*3)//  從0產生3個數字  由1去減    parseInt得整數
+//                      }
+//                  })
+
+
+
+        </script>
+
+   
+
+</body>
+</html>

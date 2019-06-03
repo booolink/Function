@@ -1,0 +1,86 @@
+$color_blue:#46f;
+$color_red:#f35;
+$color_bg:#222;
+$box_size:150px;
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding:0; 
+    background-color:$color_bg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+  
+}
+
+@mixin size($w,$h:$w){
+    width: $w;
+    height: $h;
+}
+#app{
+    @include size($box_size*3);
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.small{
+    @include size(90px !important);
+    margin:50px auto;
+}
+.number{
+    color:white;
+    font-family: '微軟正黑體';
+    font-size: 12px;
+    margin-left: 3px;
+    opacity: .7;
+}
+
+.block{
+    @include size($box_size);
+    border: 1px solid rgb(136, 152, 255);
+    position: relative;
+    transition: .5s;
+
+    & .circle{
+        &:before,&:after{
+             content: '';
+             display: block;
+             border-radius: 50%;
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             transform:translate(-50%,-50%);
+            }
+        &:before{
+            @include size(90%);
+            background-color: $color_red; 
+            }
+        &:after{
+            @include size(65%);
+            background-color: $color_bg;
+            } 
+    }
+    & .cross{
+        &:before,&:after{
+             content: '';
+             display: block;
+             position: absolute;
+             @include size(90%,15%);
+             background-color: $color_blue;
+             top: 50%;
+             left: 50%;
+             
+         }
+         &:before{
+             transform: translate(-50%,-50%) rotate(45deg);
+         }
+         &:after{
+             transform: translate(-50%,-50%) rotate(-45deg);
+         }
+    }  
+}
