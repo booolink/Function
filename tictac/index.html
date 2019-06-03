@@ -13,7 +13,7 @@
 
         <div id="app">
                 <div class="block"
-                    v-bind:class="{ circle: block.type == 1, cross: block.type == -1} "
+                    :class="{ circle: block.type == 1, cross: block.type == -1} "
                     v-for="(block,id) in blocks"  @click="player_go(block)">
                 
                     <div class="number">{{id+1}}</div>
@@ -44,7 +44,7 @@
                  turn:1
             },
 
-            mounted(){        //一個生命週期  
+            mounted(){        //一個生命週期
                 this.restart()
             },
           

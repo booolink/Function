@@ -61,7 +61,7 @@ body {
   background-color: rgba(255, 255, 255, 0.306);
 }
 
-.block .circle:before, .block .circle:after {
+.block.circle:before, .block.circle:after {
   content: '';
   display: block;
   border-radius: 50%;
@@ -72,19 +72,19 @@ body {
           transform: translate(-50%, -50%);
 }
 
-.block .circle:before {
+.block.circle:before {
   width: 90%;
   height: 90%;
   background-color: #f35;
 }
 
-.block .circle:after {
+.block.circle:after {
   width: 65%;
   height: 65%;
   background-color: #222;
 }
 
-.block .cross:before, .block .cross:after {
+.block.cross:before, .block.cross:after {
   content: '';
   display: block;
   position: absolute;
@@ -95,12 +95,12 @@ body {
   left: 50%;
 }
 
-.block .cross:before {
+.block.cross:before {
   -webkit-transform: translate(-50%, -50%) rotate(45deg);
           transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.block .cross:after {
+.block.cross:after {
   -webkit-transform: translate(-50%, -50%) rotate(-45deg);
           transform: translate(-50%, -50%) rotate(-45deg);
 }

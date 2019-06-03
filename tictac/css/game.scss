@@ -50,7 +50,7 @@ body{
         background-color: rgba(255, 255, 255, 0.306);
     }
 
-    & .circle{
+    &.circle{
         &:before,&:after{
             content: '';
             display: block;
@@ -69,7 +69,7 @@ body{
             background-color: $color_bg;
             } 
     }
-    & .cross{
+    &.cross{
         &:before,&:after{
              content: '';
              display: block;
