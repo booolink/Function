@@ -12,13 +12,18 @@
     <div class="block_area">
 
         <div id="app">
-            <div class="block" 
-                v-for="(block,uuu) in blocks"  @click="player_go(block)"
-                v-bind:class="{circle:block.type == 1, cross:block.type == -1}">
+                <div class="block"
+                
+                    v-bind:class="{ circle: block.type == 1, cross: block.type == -1} "
+                    v-for="(block,id) in blocks"  @click="player_go(block)">
 
-                <div class="number">{{uuu+1}}</div>
-            </div>
+                    <div class="number">{{id+1}}</div>
+
+                </div>
         </div>
+        
+     </div>
+       
         
         <div class="block small" v-bind:class="{circle:turn==1, cross:turn==-1}">
          
@@ -40,11 +45,12 @@
             mounted(){        //一個生命週期  
                 this.restart()
             },
-            player_go(block){
+          
+            methods:{
+                player_go(block){
                 block.type = this.turn
                 this.turn = -this.turn
             },
-            methods:{
                 restart(){               //restart() 給這個methods:  的一個函式
                     this.blocks=Array.from({length:9},function(){  //this.陣列=array.from({length:9個}) 
                         return {                      //並且給他一個方法 是返回 type:0   
@@ -52,7 +58,7 @@
                         }
                     })             
                 }
-            }
+            },
    });
 
 
