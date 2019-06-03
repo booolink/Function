@@ -13,21 +13,21 @@
 
         <div id="app">
                 <div class="block"
-                
                     v-bind:class="{ circle: block.type == 1, cross: block.type == -1} "
                     v-for="(block,id) in blocks"  @click="player_go(block)">
-
+                
                     <div class="number">{{id+1}}</div>
-
                 </div>
+
         </div>
+
         
      </div>
        
+     <div class="block small" v-bind:class="{circle:turn==1, cross:turn==-1}">
         
-        <div class="block small" v-bind:class="{circle:turn==1, cross:turn==-1}">
-         
         </div>
+         
  
     </div>
 
@@ -36,12 +36,14 @@
 
      <script>
           var blocks = {type: 0}
+
           var vm = new Vue({
             el:'#app',
             data:{        //設定一個陣列名子叫 blocks
                  blocks:[],
                  turn:1
             },
+
             mounted(){        //一個生命週期  
                 this.restart()
             },
@@ -50,7 +52,8 @@
                 player_go(block){
                 block.type = this.turn
                 this.turn = -this.turn
-            },
+                },
+
                 restart(){               //restart() 給這個methods:  的一個函式
                     this.blocks=Array.from({length:9},function(){  //this.陣列=array.from({length:9個}) 
                         return {                      //並且給他一個方法 是返回 type:0   
