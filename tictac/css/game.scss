@@ -22,16 +22,13 @@ body{
     width: $w;
     height: $h;
 }
-#app{
+.block_area{
     @include size($box_size*3);
     display:flex;
     flex-wrap: wrap;
 }
 
-.small{
-    @include size(70px !important);
-    margin:50px auto;
-}
+
 .number{
     color:white;
     font-family: '微軟正黑體';
@@ -42,12 +39,17 @@ body{
 
 .block{
     @include size($box_size);
-    border: 1px solid rgb(136, 152, 255);
+    border: 1px solid rgba(136, 152, 255, 0.469);
     position: relative;
-    transition: .5s;
+    transition:.3s;
 
+    &.small{
+        @include size(70px !important);
+        margin:50px auto;
+    }
+    
     &:hover{
-        background-color: rgba(255, 255, 255, 0.306);
+        background-color: rgba(255, 255, 255, 0.122);
     }
 
     &.circle{

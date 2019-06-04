@@ -9,25 +9,29 @@
 
 </head>
 <body>
-    <div class="block_area">
+   
 
         <div id="app">
+
+            <div class="block_area">
+
                 <div class="block"
-                    :class="{ circle: block.type == 1, cross: block.type == -1} "
+                    :class="{ circle: block.type == 1, cross: block.type == -1}"
                     v-for="(block,id) in blocks"  @click="player_go(block)">
                 
                     <div class="number">{{id+1}}</div>
+                    
                 </div>
+                
+                <div class="block small" 
+                :class="{circle: turn == 1, cross: turn == -1}">
+                </div>
+                
+            </div>
+                
 
-        </div>
-
-        
-     </div>
-       
-     <div class="block small" v-bind:class="{circle:turn==1, cross:turn==-1}">
-        
-        </div>
-         
+    </div>
+    
  
     </div>
 
@@ -50,8 +54,13 @@
           
             methods:{
                 player_go(block){
-                block.type = this.turn
-                this.turn = -this.turn
+                    if(block.type==0){
+                    block.type = this.turn
+                    this.turn = -this.turn  
+                    }else{
+                        alert('已被占領')
+                    }
+
                 },
 
                 restart(){               //restart() 給這個methods:  的一個函式
@@ -60,7 +69,15 @@
                             type:0
                         }
                     })             
+                },
+                computed:{
+                    user(){
+                        var verify_list = "123,456,789,147,258,369,357,159"
+                        return
+                    }
                 }
+
+
             },
    });
 
