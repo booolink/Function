@@ -6,7 +6,7 @@ $box_size:100px;
 *{
     box-sizing: border-box;
 }
-body{
+body,#app{
     margin: 0;
     padding:0; 
     background-color:$color_bg;
@@ -15,7 +15,12 @@ body{
     align-items: center;
     flex-direction: column;
     color: white;
-  
+    // outline:1px solid #f35;
+}
+.block_area{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 @mixin size($w,$h:$w){
@@ -27,7 +32,27 @@ body{
     display:flex;
     flex-wrap: wrap;
 }
-
+h1{
+    display:inline-block;
+    margin-top: 65px;
+}
+h2{
+    width: 300px;
+    height: 200px;
+    pointer-events:none;
+    text-align: center;
+    font-size: 100px;
+    position: absolute;
+    top: 180px;
+}
+h3{
+    position: absolute;
+    top: 420px;
+    cursor: pointer; 
+}
+h3:hover{
+    border-bottom:1px solid white;
+}
 
 .number{
     color:white;
@@ -41,11 +66,11 @@ body{
     @include size($box_size);
     border: 1px solid rgba(136, 152, 255, 0.469);
     position: relative;
-    transition:.3s;
+    // transition:.3s;
 
     &.small{
         @include size(70px !important);
-        margin:50px auto;
+        margin-top:50px;
     }
     
     &:hover{
@@ -61,6 +86,7 @@ body{
             top: 50%;
             left: 50%;
             transform:translate(-50%,-50%);
+            transition:.3s;
            }
         &:before{
             @include size(90%);
@@ -78,6 +104,7 @@ body{
              position: absolute;
              @include size(90%,15%);
              background-color: $color_blue;
+             transition:.3s;
              top: 50%;
              left: 50%; 
          }
