@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .bgimg {
+        width: 300px;
+        height: 200px;
+        margin: 50px auto;
+        background-image: url("img/BG.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: relative;
+        
+      }
+      .plane {
+        width: 70%;
+        height: 30%;
+        background-image: url("img/plane.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        
+      }
+      .bgimg:hover .plane{
+        transition: .8s linear;
+         transform: scale(1.6) rotate(10deg);
+         top:80px;
+         left: 70px;
+         filter:drop-shadow( 1px 1px 3px rgb(44, 44, 44));
+      }
+
+    </style>
+  </head>
+  <body></body>
+  <div class="bgimg">
+    <div class="plane"></div>
+  </div>
+
+
+  <script>
+  
+  </script>
+</html>

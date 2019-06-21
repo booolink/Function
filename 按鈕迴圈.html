@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+    #div1 div{
+        width: 300px;
+        height: 100px;
+       background-color:#888; 
+    }
+    .yellow{
+        background-color: yellow;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="div1">
+      <input class="yellow" type="button"  name="" id="a" value="教育" jjj="111"/>
+      <input type="button" name="" id="b" value="培訓" />
+      <input type="button" name="" id="c" value="出國" />
+      <input type="button" name="" id="d" value="招生" />
+      <div classs="" style='display: block' >adafaf box1</div>
+      <div style='display: none'>reoemjgoe box2</div>
+      <div style='display: none'>Lorem, ipsum dolor. box3</div>
+      <div style='display: none'>Lorem ipsum dolor sit amet.  box4</div>
+    </div>
+
+
+    <!-- <script src="Untitled-1.js"></script> -->
+    <script>
+    var odiv = document.querySelector('#div1')
+    var abtn = odiv.querySelectorAll('input')
+    var adiv = odiv.querySelectorAll('div')
+
+    
+
+
+
+
+
+    // for(var i=0 ; i< abtn.length ; i++){
+    //     abtn[i].onclick = function (){
+    //         for(var i=0 ; i< abtn.length ; i++){
+    //             abtn[i].className="";
+    //         }
+    //         this.className='yellow';
+    //     }
+    // }
+
+
+    abtn.forEach((onclick)=>{
+        onclick.onclick = function(){
+            abtn.forEach((onclick)=>{
+                onclick.className = "";  //點擊後 先讓foreach讓class歸零
+
+                adiv.forEach((Ssst)=>{
+                    if( Ssst.style.display==="none"){
+                        Ssst.style.display="block";
+                        console.log("456")
+                    } 
+                })
+            })
+            onclick.className='yellow';   //再讓點擊的那個增加一個classname
+            adiv.forEach((Ssst)=>{
+                if( Ssst.style.display==="block"){
+                    Ssst.style.display="none";
+                    console.log("123")
+                }
+                })
+        } // console.log(Ssst)
+    })
+        
+
+
+    </script>
+  </body>
+</html>
