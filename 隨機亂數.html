@@ -169,8 +169,8 @@
                     alert('不能有空格!');
 
                 } else
-                    if (num > max) {
-                        alert("取數 不可小於 大")
+                    if (num < max) {
+                        alert("取數 不可大於 大")
                         $("#num").val("")
                         $("#max").val("")
                     } else
