@@ -1,0 +1,13 @@
+body{
+    background: #555;
+}
+.svg{
+    height: 100vh;
+}
+path{
+    stroke: rgb(240, 240, 240);
+}
+path:hover{
+    fill:#b99362;
+    transform: translate(-3px,-3px);
+}
