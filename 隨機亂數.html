@@ -14,7 +14,11 @@
             /* outline: 1px solid red; */
             margin: 0;
             padding: 0;
+        }
 
+        p {
+            margin: 0;
+            padding: 0;
         }
 
         .all {
@@ -52,7 +56,7 @@
         }
 
         .inp {
-            
+
             min-width: 100%;
             height: 30px;
             border-radius: 5px;
@@ -104,6 +108,7 @@
             height: 100%;
             font-size: 1.5em;
             color: rgba(78, 213, 71, 0.87);
+            text-align: center;
         }
 
         .hhh p {
@@ -167,8 +172,6 @@
                 var max = Number($("#max").val())
                 var min = Number($("#min").val())
 
-                console.log(typeof (num))
-
                 if ($.trim($("input").val()) == '') {
                     alert('不能有空格!');
 
@@ -209,9 +212,7 @@
                                                     i -= 1;
                                                     // 讓循環再一次
                                                     continue;
-
                                                 } else {
-
                                                     arr.push(ran);
                                                     //就push  進陣列內
                                                 }
