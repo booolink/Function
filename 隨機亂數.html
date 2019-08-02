@@ -41,7 +41,7 @@
         }
 
         .inp {
-            width:100%;
+            width: 100%;
             height: 30px;
             border-radius: 5px;
             line-height: 1.7em;
@@ -56,7 +56,8 @@
             height: 30px;
             border-radius: 5px;
             cursor: pointer;
-            margin:auto;;
+            margin: auto;
+            ;
         }
 
         .hhh {
@@ -127,34 +128,64 @@
 
     <script>
         $(document).ready(function () {
-            var arr = []
-
-
+            
+            
             $(".but").click(function () {
+                
+                var arr = []
                 var min = $("#min").val()
                 var max = $("#max").val()
                 var num = $("#num").val()
 
+                if ($.trim($("input").val()) == '') {
+                    alert('不能有空格!');
+                    return false;
+                }else
+                if (num < max) {
+                    $("#num").val("")
+                    $("#max").val("")
+                    arr = []
+                    alert("取數 不可小於 大")
+                }else
+                if (max < min) {
+                    $("#min").val("")
+                    $("#max").val("")
+                    arr = []
+                    alert("大 不可小於 小")
+                }else
+                if (num == null || num == undefined || num == "") {
+                    alert("請輸入你要取得幾個數")
 
-                for (var i = 0; i < num; i++) {
-                    //取得整數   數字亂數0   * 範圍   + 1
-                    var ran = parseInt(Math.random() * (max - min) );
-                    if (arr.indexOf(ran) >= 0) {
-                        //當 > 0  代表找到相同的 i-=1 
-                        i -= 1;
-                        console.log(i)
-                        console.log(ran)
-                        // 讓循環再一次
-                        continue;
+                }else
+                if (max == null || max == undefined || max == "") {
+                    alert("請輸入最大數")
 
-                    } else {
-                        arr.push(ran);
-                        //就push  進陣列內
-                    }
+                }else
+                if (min == null || min == undefined || min == "") {
+                    alert("請輸入最小數")
+
                 }
-                $(".inp").text(arr);
-                arr = []
-            });
+                else {
+                    for (var i = 0; i < num; i++) {
+                        //向上取整 數字亂數0~0.99   *      範圍   + 1 
+                        var ran = Math.ceil(Math.random() * (max - min + 1));
+                        if (arr.indexOf(ran) >= 0) {
+                            //當 > 0  代表找到相同的 i-=1 
+                            i -= 1;
+                            // 讓循環再一次
+                            continue;
+
+                        } else {
+                            arr.push(ran);
+                            //就push  進陣列內
+                        }
+                    }
+                    $(".inp").text(arr);
+                    arr = []
+                }
+
+            })
+
 
 
 
