@@ -52,7 +52,8 @@
         }
 
         .inp {
-            width: 100%;
+            
+            min-width: 100%;
             height: 30px;
             border-radius: 5px;
             line-height: 1.7em;
@@ -111,7 +112,8 @@
             font-size: 1.5em;
             color: rgb(30, 189, 247);
         }
-        .hhh p:nth-child(3){
+
+        .hhh p:nth-child(3) {
             color: rgb(247, 15, 26);
         }
 
@@ -127,12 +129,12 @@
         <div class="container">
             <h1>隨機亂數</h1>
             <div class="yy">
-                <p>我要</p><input id="num" type="text" onkeyup="value=value.replace(/[^\d]/g,'')">
+                <p>我要</p><input id="num" type="text" name="number" onkeyup="value=value.replace(/[^\d]/g,'')">
                 <p>位</p>
             </div>
             <div class="hhh">
-                <p>小</p><input id="min" type="text" value="1" onkeyup="value=value.replace(/[^\d]/g,'')">
-                <p>大</p><input id="max" type="text" onkeyup="value=value.replace(/[^\d]/g,'')">
+                <p>小</p><input id="min" type="text" name="number" value="1" onkeyup="value=value.replace(/[^\d]/g,'')">
+                <p>大</p><input id="max" type="text" name="number" onkeyup="value=value.replace(/[^\d]/g,'')">
             </div>
 
             <div class="box">
@@ -161,9 +163,11 @@
             $(".but").click(function () {
 
                 var arr = []
-                var min = $("#min").val()
-                var max = $("#max").val()
-                var num = $("#num").val()
+                var num = Number($("#num").val())
+                var max = Number($("#max").val())
+                var min = Number($("#min").val())
+
+                console.log(typeof (num))
 
                 if ($.trim($("input").val()) == '') {
                     alert('不能有空格!');
@@ -191,7 +195,6 @@
                                 } else
                                     if (max == null || max == undefined || max == "") {
                                         alert("請輸入最大數")
-
                                     } else
                                         if (min == null || min == undefined || min == "") {
                                             alert("請輸入最小數")
@@ -208,6 +211,7 @@
                                                     continue;
 
                                                 } else {
+
                                                     arr.push(ran);
                                                     //就push  進陣列內
                                                 }
@@ -215,13 +219,8 @@
                                             $(".inp").text(arr);
                                             arr = []
                                         }
-
             })
-
-
-
-
-        });
+        })
 
     </script>
 </body>
