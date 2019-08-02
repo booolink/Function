@@ -1,52 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>取得隨機亂數陣列[5]</title>
-    <style>
-        *{
-            box-sizing: border-box;
-        }
-        h3{
-            margin: 50px auto ;
-            text-align: center;
 
-        }
-    .container{
-        width: 300px;
-        height: 300px;
-        background-color: #666;
-        padding-top: 20px;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>取得隨機亂數陣列[5]</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "微軟正黑體";
+      font-weight: bolder;
     }
-    .box{
-        width: 180px;
-        height: 80px;
-        margin: auto;
-        display: flex;
+
+    h3 {
+      margin: 50px auto;
+      text-align: center;
+      color: #fff;
     }
-    .inp{
-        width: 130px;
-        height: 20px;
-        background-color: azure;
+
+    .container {
+      width: 300px;
+      height: 300px;
+      background-color: rgb(82, 157, 189);
+      padding-top: 20px;
+      margin: auto;
+      border-radius:5px;
+      transform: translateY(30%);
     }
-    .but{
-        width: 50px;
-        height: 20px;
+
+    .box {
+      width: 180px;
+      height: 80px;
+      margin: auto;
+      display: flex;
     }
-    </style>
-  </head>
-  <body>
-       
-<div class="container">
-        <h3>五位隨機亂數 2-32</h3>
+
+    .inp {
+      width: 130px;
+      height: 30px;
+      border-radius:5px;
+      line-height: 1.7em;
+      padding-left: 8px;
+      background-color: azure;
+      color: rgb(81, 175, 150);
+    }
+
+    .but {
+      width: 50px;
+      height: 30px;
+      border-radius:5px; 
+      cursor: pointer;
+      margin-left: 5px;
+    }
+    .but:hover{
+      background-color: rgba(0, 0, 255, 0.333);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h3>五位隨機亂數 2-32</h3>
     <div class="box">
-            <div class="inp"></div>
-            <button class="but">取得</button>
+      <div class="inp"></div>
+      <button class="but">取得</button>
     </div>
-    
-</div>
+
+  </div>
 
 
 
@@ -55,29 +77,27 @@
 
 
 
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.min.js"
-      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-      crossorigin="anonymous"
-    ></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-    <script>
-      $(document).ready(function() {
-        var arr = new Array(2, 11, 18, 32, 17, 8);
-        arr.length = 5;
-        var x = 1;
-        var y = 32;
-        $(".but").click(function() {
-          var ran = parseInt(Math.random() * (y - x) + 1);
-          if (arr.indexOf(ran) == -1) {
-            arr.push(ran);
-            if (arr.length >= 5) {
-              arr.shift();
-            }
+  <script>
+    $(document).ready(function () {
+      var arr = new Array(2, 11, 18, 32, 17, 8);
+      arr.length = 5;
+      var x = 1;
+      var y = 32;
+      $(".but").click(function () {
+        var ran = parseInt(Math.random() * (y - x) + 1);
+        if (arr.indexOf(ran) == -1) {
+          arr.push(ran);
+          if (arr.length >= 5) {
+            arr.shift();
           }
-          $(".inp").text(arr);
-        });
+        }
+        $(".inp").text(arr);
       });
-    </script>
-  </body>
+    });
+  </script>
+</body>
+
 </html>
