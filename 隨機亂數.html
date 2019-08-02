@@ -131,7 +131,7 @@
                 <p>位</p>
             </div>
             <div class="hhh">
-                <p>小</p><input id="min" type="text" onkeyup="value=value.replace(/[^\d]/g,'')">
+                <p>小</p><input id="min" type="text" value="1" onkeyup="value=value.replace(/[^\d]/g,'')">
                 <p>大</p><input id="max" type="text" onkeyup="value=value.replace(/[^\d]/g,'')">
             </div>
 
@@ -169,7 +169,7 @@
                     alert('不能有空格!');
 
                 } else
-                    if (num < max) {
+                    if (num > max) {
                         alert("取數 不可大於 大")
                         $("#num").val("")
                         $("#max").val("")
